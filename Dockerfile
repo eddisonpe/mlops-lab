@@ -15,7 +15,7 @@ COPY src/api/requirements.txt ./src/api/
 # Install Python dependencies
 RUN pip install --no-cache-dir -r src/api/requirements.txt
 
-# ✅ Copy complete project structure
+# Copy complete project structure
 COPY src/ ./src/
 COPY models/ ./models/
 
@@ -34,5 +34,5 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
-# ✅ Run with same command as local
+# Run with same command as local
 CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
