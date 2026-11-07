@@ -1,27 +1,31 @@
 model:
-  best_model: LinearRegression
+  name: house_price_model
+  best_model: RandomForest          # ganador por mayor R² en test
+  parameters:                       # get_params() completo del best_estimator_
+    n_estimators: 50
+    max_depth: null
+    min_samples_split: 2
+    min_samples_leaf: 1
+    # ... resto de parámetros por defecto de sklearn
+  r2_score: 0.9691                  # métrica de referencia
+  mae: 21252.29
+  target_variable: price
   feature_sets:
-    rfe:
-    - '0'
-    - '1'
-    - '2'
-    - '3'
-    - '4'
-    - '5'
-    - '6'
-    - '9'
-    - '11'
-    - '14'
+    rfe:                            # las 10 features elegidas por RFE (celda 3)
+      - num__sqft
+      - num__bedrooms
+      - num__bathrooms
+      - num__house_age
+      - num__bed_bath_ratio
+      - cat__location_Downtown
+      - cat__location_Rural
+      - cat__location_Suburb
+      - cat__location_Waterfront
+      - cat__condition_Good
     rfe_method: RandomForestRegressor
     selected_features_count: 10
-    total_features: 16
-  mae: 9002.02179919152
-  name: house_price_model
-  parameters:
-    copy_X: true
-    fit_intercept: true
-    n_jobs: null
-    positive: false
-    tol: 1.0e-06
-  r2_score: 0.9954092899320162
-  target_variable: price
+    total_features: 15
+  quality_gate:                     # umbrales que el script debe exigir en el holdout (reto lab 13.2)
+    min_r2: 0.90
+    max_mape: 0.10
+    must_beat_baseline: true

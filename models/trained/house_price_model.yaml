@@ -1,0 +1,34 @@
+model:
+  best_model: RandomForest
+  feature_sets:
+    rfe:
+    - num__sqft
+    - num__bedrooms
+    - num__bathrooms
+    - num__house_age
+    - num__bed_bath_ratio
+    - cat__location_Downtown
+    - cat__location_Rural
+    - cat__location_Suburb
+    - cat__location_Waterfront
+    - cat__condition_Good
+    rfe_method: RandomForestRegressor
+    selected_features_count: 10
+    total_features: 15
+  final_metrics:
+    mae: 21161.607142857152
+    r2: 0.9708397714738358
+    rmse: 36854.674630502195
+  mae: 21252.29
+  name: house_price_model
+  parameters:
+    max_depth: null
+    min_samples_leaf: 1
+    min_samples_split: 2
+    n_estimators: 50
+  quality_gate:
+    max_mape: 0.1
+    min_r2: 0.9
+    must_beat_baseline: true
+  r2_score: 0.9691
+  target_variable: price

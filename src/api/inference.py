@@ -40,8 +40,7 @@ def predict_price(request: HousePredictionRequest) -> PredictionResponse:
             'bathrooms': request.bathrooms,
             'location': request.location,
             'year_built': request.year_built,
-            'condition': request.condition,
-            'price_per_sqft': request.price_per_sqft
+            'condition': request.condition
         }])
         
         # ✅ PASO 2: Calcular features derivadas
