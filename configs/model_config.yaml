@@ -1,0 +1,27 @@
+model:
+  best_model: LinearRegression
+  feature_sets:
+    rfe:
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '9'
+    - '11'
+    - '14'
+    rfe_method: RandomForestRegressor
+    selected_features_count: 10
+    total_features: 16
+  mae: 9002.02179919152
+  name: house_price_model
+  parameters:
+    copy_X: true
+    fit_intercept: true
+    n_jobs: null
+    positive: false
+    tol: 1.0e-06
+  r2_score: 0.9954092899320162
+  target_variable: price
